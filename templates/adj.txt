@@ -1,0 +1,10 @@
+red
+green
+blue
+dark
+bright
+large
+small
+tiny
+huge
+enormous

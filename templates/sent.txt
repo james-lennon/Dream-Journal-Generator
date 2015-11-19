@@ -1,0 +1,6 @@
+#intro
+I saw a {load(adj)} {load(noun#char)} with {load(noun#item,plur)} {enum(coming out of|all over|sticking out of|on)} its {load(noun#body)}.
+
+#middle
+
+#end
