@@ -1,5 +1,6 @@
 import os
 import random
+import pattern.en
 
 TEMPLATE_PATH = os.path.join(".", "templates")
 
@@ -92,9 +93,14 @@ class DreamTemplate:
 
     def _load_component(self, args):
         new = False
-        if len(args) == 1 or True:
-            return self._pick_random_component(args[0])
-        raise NotImplementedError('Reused values not implemented')
+        if len(args) == 0:
+            raise ValueError("Invalid number of arguments passed to load", args)
+
+        word = self._pick_random_component(args[0])
+
+        if len(args) > 1 and args[1] == "plur":
+            word = pattern.en.pluralize(word)
+        return word
 
     def _enum(self, args):
         if len(args) != 1:
