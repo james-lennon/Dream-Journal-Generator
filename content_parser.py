@@ -1,5 +1,6 @@
 import os
 import random
+
 import pattern.en
 
 TEMPLATE_PATH = os.path.join(".", "templates")
@@ -15,9 +16,20 @@ class TemplateComponent:
         self.sections[section].append(entry)
 
 
+class DreamContent:
+    def __init__(self):
+        self.components = {}
+
+    def add_component(self, query, comp):
+        if query not in self.components:
+            self.components[query] = []
+        self.components[query].append(comp)
+
+
 class DreamTemplate:
     def __init__(self):
         self.components = {}
+        self.content = DreamContent()
 
     def load(self):
         for i in os.listdir(TEMPLATE_PATH):
@@ -90,9 +102,10 @@ class DreamTemplate:
             return self._load_component(args)
         elif fxn == "enum":
             return self._enum(args)
+        elif fxn == "reuse":
+            return self._reuse(args)
 
     def _load_component(self, args):
-        new = False
         if len(args) == 0:
             raise ValueError("Invalid number of arguments passed to load", args)
 
@@ -100,6 +113,7 @@ class DreamTemplate:
 
         if len(args) > 1 and args[1] == "plur":
             word = pattern.en.pluralize(word)
+        self.content.add_component(args[0], word)
         return word
 
     def _enum(self, args):
@@ -108,3 +122,12 @@ class DreamTemplate:
 
         options = args[0].split("|")
         return self.parse_entry(random.sample(options, 1)[0])
+
+    def _reuse(self, args):
+        if len(args) == 0:
+            raise ValueError("Invalid arguments given to reuse", args)
+
+        list = self.content.components[args[0]]
+        if list is None:
+            raise ValueError("Can't reuse query that hasn't been loaded yet.", args[0])
+        return random.sample(list, 1)[0]

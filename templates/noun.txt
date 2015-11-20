@@ -21,6 +21,10 @@ fruit
 dog
 cat
 mouse
+insect
+bug
+phone
+
 
 #body
 mouth
