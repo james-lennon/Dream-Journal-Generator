@@ -150,10 +150,11 @@ class DreamTemplate:
         if len(args) == 0:
             raise ValueError("Invalid arguments given to reuse", args)
 
-        list = self.content.components[args[0]]
-        if list is None:
-            raise ValueError("Can't reuse query that hasn't been loaded yet.", args[0])
-        return random.sample(list, 1)[0]
+        if args[0] not in self.content.components:
+            return self._load_component(args)
+        else:
+            list = self.content.components[args[0]]
+            return random.sample(list, 1)[0]
 
     def _prob(self, args):
         if len(args) == 0:

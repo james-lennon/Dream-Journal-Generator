@@ -10,6 +10,11 @@ stand on
 shoot
 throw some {load(noun#item)}
 
+#action
+shake
+melt
+crumble
+
 #move
 run
 walk

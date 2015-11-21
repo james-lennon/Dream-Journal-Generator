@@ -4,5 +4,7 @@ I saw a {load(adj)}{prob( {load(adj)})} {load(noun#char)} with {load(noun#item,p
 #action
 The {reuse(noun#char)} began to {load(verb#actionobj)} me, but I {load(verb#actionobj)} it and run away.
 {enum(thinking this was strange,|I began to realize something was amiss, and)} I {load(verb#move)} to a {load(noun#loc)}.
+The {reuse(noun#loc)} that I was in suddenly began to {load(verb#action)}
 
 #end
+Then, I woke up.
