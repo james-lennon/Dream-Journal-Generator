@@ -20,3 +20,4 @@ import content_parser
 tmp = content_parser.DreamTemplate()
 tmp.load()
 print tmp.parse_command("load(sent#intro)")
+print tmp.parse_command("load(sent#action)")

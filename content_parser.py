@@ -86,6 +86,7 @@ class DreamTemplate:
             val = self.parse_command(cmd)
             result += val
             pos = entry.find("{", endpos)
+        result += entry[endpos + 1:]
 
         return result
 

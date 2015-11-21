@@ -1,6 +1,7 @@
 #intro
 I saw a {load(adj)} {load(noun#char)} with {load(noun#item,plur)} {enum(coming out of|all over|sticking out of|on)} its {load(noun#body)}.
 
-#middle
+#action
+The {reuse(noun#char)} began to {load(verb#action)} at me, but I {load(verb#action)} it and run away.
 
 #end
