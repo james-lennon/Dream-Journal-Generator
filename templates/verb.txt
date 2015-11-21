@@ -2,7 +2,7 @@
 punch
 slap
 smack
-run
 kick
-jump
-yell
+jump over
+yell at
+sing to

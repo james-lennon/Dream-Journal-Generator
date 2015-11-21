@@ -71,7 +71,22 @@ class DreamTemplate:
             return False
         return self.parse_entry(random.sample(values, 1)[0])
 
+    def _find_close(self, str, pos, delim, cdelim):
+        d = 0
+        endpos = -1
+        for i in range(pos + 1, len(str)):
+            if str[i] == cdelim:
+                if d == 0:
+                    endpos = i
+                    break
+                else:
+                    d -= 1
+            elif str[i] == delim:
+                d += 1
+        return endpos
+
     def parse_entry(self, entry):
+        print entry
         result = ""
 
         pos = entry.find("{")
@@ -81,18 +96,23 @@ class DreamTemplate:
 
         while pos != -1:
             result += entry[endpos + 1:pos]
-            endpos = entry.find("}", pos + 1)
+
+            endpos = self._find_close(entry, pos, "{", "}")
+
+            # endpos = entry.find("}", pos + 1)
             cmd = entry[pos + 1:endpos]
+            print "cmd=", cmd
             val = self.parse_command(cmd)
             result += val
             pos = entry.find("{", endpos)
+
         result += entry[endpos + 1:]
 
         return result
 
     def parse_command(self, cmd):
         paren1 = cmd.find("(")
-        paren2 = cmd.find(")", paren1)
+        paren2 = cmd.rfind(")")
 
         if paren1 == -1 or paren2 == -1:
             raise ValueError('Bad command string', cmd)
@@ -105,15 +125,21 @@ class DreamTemplate:
             return self._enum(args)
         elif fxn == "reuse":
             return self._reuse(args)
+        elif fxn == "prob":
+            return self._prob(args)
 
     def _load_component(self, args):
         if len(args) == 0:
             raise ValueError("Invalid number of arguments passed to load", args)
 
-        word = self._pick_random_component(args[0])
+        while True:
+            word = self._pick_random_component(args[0])
 
-        if len(args) > 1 and args[1] == "plur":
-            word = pattern.en.pluralize(word)
+            if len(args) > 1 and args[1] == "plur":
+                word = pattern.en.pluralize(word)
+
+            if args[0] not in self.content.components or word not in self.content.components[args[0]]:
+                break
         self.content.add_component(args[0], word)
         return word
 
@@ -132,3 +158,14 @@ class DreamTemplate:
         if list is None:
             raise ValueError("Can't reuse query that hasn't been loaded yet.", args[0])
         return random.sample(list, 1)[0]
+
+    def _prob(self, args):
+        if len(args) == 0:
+            raise ValueError("Invalid number of arguments for prob", args)
+        prob = 0.5
+        if len(args) == 2:
+            prob = float(args[1])
+
+        if random.random() < prob:
+            return self.parse_entry(args[0])
+        return ""

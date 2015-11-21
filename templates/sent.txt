@@ -1,7 +1,7 @@
 #intro
-I saw a {load(adj)} {load(noun#char)} with {load(noun#item,plur)} {enum(coming out of|all over|sticking out of|on)} its {load(noun#body)}.
+I saw a {load(adj)}{prob( {load(adj)})} {load(noun#char)} with {load(noun#item,plur)} {enum(coming out of|all over|sticking out of|on)} its {load(noun#body)}.
 
 #action
-The {reuse(noun#char)} began to {load(verb#action)} at me, but I {load(verb#action)} it and run away.
+The {reuse(noun#char)} began to {load(verb#action)} me, but I {load(verb#action)} it and run away.
 
 #end
