@@ -1,6 +1,6 @@
 #char
 monster
-friend
+teacher
 man
 woman
 dog
@@ -25,7 +25,6 @@ insect
 bug
 phone
 
-
 #body
 mouth
 tongue
@@ -37,3 +36,11 @@ feet
 toes
 legs
 arms
+
+#loc
+dining hall
+bed
+house
+airport
+dorm
+classroom

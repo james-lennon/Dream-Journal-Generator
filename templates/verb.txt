@@ -1,4 +1,4 @@
-#action
+#actionobj
 punch
 slap
 smack
@@ -6,3 +6,13 @@ kick
 jump over
 yell at
 sing to
+stand on
+shoot
+throw some {load(noun#item)}
+
+#move
+run
+walk
+drive
+go
+sprint

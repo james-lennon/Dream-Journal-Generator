@@ -2,6 +2,7 @@
 I saw a {load(adj)}{prob( {load(adj)})} {load(noun#char)} with {load(noun#item,plur)} {enum(coming out of|all over|sticking out of|on)} its {load(noun#body)}.
 
 #action
-The {reuse(noun#char)} began to {load(verb#action)} me, but I {load(verb#action)} it and run away.
+The {reuse(noun#char)} began to {load(verb#actionobj)} me, but I {load(verb#actionobj)} it and run away.
+{enum(thinking this was strange,|I began to realize something was amiss, and)} I {load(verb#move)} to a {load(noun#loc)}.
 
 #end

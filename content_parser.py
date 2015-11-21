@@ -86,7 +86,6 @@ class DreamTemplate:
         return endpos
 
     def parse_entry(self, entry):
-        print entry
         result = ""
 
         pos = entry.find("{")
@@ -99,9 +98,7 @@ class DreamTemplate:
 
             endpos = self._find_close(entry, pos, "{", "}")
 
-            # endpos = entry.find("}", pos + 1)
             cmd = entry[pos + 1:endpos]
-            print "cmd=", cmd
             val = self.parse_command(cmd)
             result += val
             pos = entry.find("{", endpos)
@@ -144,10 +141,9 @@ class DreamTemplate:
         return word
 
     def _enum(self, args):
-        if len(args) != 1:
-            raise ValueError("Only one argument should be supplied to enum!", args)
+        text = ",".join(args)
 
-        options = args[0].split("|")
+        options = text.split("|")
         return self.parse_entry(random.sample(options, 1)[0])
 
     def _reuse(self, args):
