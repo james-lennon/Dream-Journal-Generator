@@ -132,8 +132,17 @@ class DreamTemplate:
         while True:
             word = self._pick_random_component(args[0])
 
-            if len(args) > 1 and args[1] == "plur":
-                word = pattern.en.pluralize(word)
+            if len(args) > 1:
+                parts = word.split(" ")
+                first = parts[0]
+                rest = parts[1:] if len(parts) > 1 else ""
+
+                if args[1] == "plur":
+                    word = pattern.en.pluralize(word)
+                elif args[1] == "ger":
+                    word = pattern.en.conjugate(first, "part") + rest
+                elif args[1] == "past":
+                    word = pattern.en.conjugate(first, "p") + rest
 
             if args[0] not in self.content.components or word not in self.content.components[args[0]]:
                 break
