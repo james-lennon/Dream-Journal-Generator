@@ -1,3 +1,4 @@
+#
 red
 green
 blue
@@ -8,3 +9,13 @@ small
 tiny
 huge
 enormous
+
+#emo
+content
+worried
+anxious
+terrified
+nervous
+angry
+furious
+relaxed

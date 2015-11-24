@@ -24,6 +24,9 @@ mouse
 insect
 bug
 phone
+triangle
+square
+photo
 
 #body
 mouth

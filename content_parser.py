@@ -65,7 +65,7 @@ class DreamTemplate:
 
         section_name = "" if len(parts) == 1 else parts[1]
         if section_name not in comp.sections:
-            raise ValueError('Section not found', section_name)
+            raise ValueError('Section not found', section_name, query)
         values = comp.sections[section_name]
         if len(values) < 1:
             return False
@@ -100,6 +100,8 @@ class DreamTemplate:
 
             cmd = entry[pos + 1:endpos]
             val = self.parse_command(cmd)
+            if not val:
+                return False
             result += val
             pos = entry.find("{", endpos)
 
@@ -135,14 +137,14 @@ class DreamTemplate:
             if len(args) > 1:
                 parts = word.split(" ")
                 first = parts[0]
-                rest = parts[1:] if len(parts) > 1 else ""
+                rest = parts[1:][0] if len(parts) > 1 else ""
 
                 if args[1] == "plur":
                     word = pattern.en.pluralize(word)
                 elif args[1] == "ger":
                     word = pattern.en.conjugate(first, "part") + rest
                 elif args[1] == "past":
-                    word = pattern.en.conjugate(first, "p") + rest
+                    word = pattern.en.conjugate(first, 'p') + rest
 
             if args[0] not in self.content.components or word not in self.content.components[args[0]]:
                 break
@@ -159,8 +161,15 @@ class DreamTemplate:
         if len(args) == 0:
             raise ValueError("Invalid arguments given to reuse", args)
 
+        strict = False
+        if len(args) >1 and args[1]=="strict":
+            strict = True
+
         if args[0] not in self.content.components:
-            return self._load_component(args)
+            if strict:
+                return False
+            else:
+                return self._load_component(args)
         else:
             list = self.content.components[args[0]]
             return random.sample(list, 1)[0]

@@ -9,11 +9,19 @@ sing to
 stand on
 shoot
 throw some {load(noun#item)}
+take a photo of
 
 #action
 shake
 melt
 crumble
+
+#state
+think
+walk
+sit
+chill
+
 
 #move
 run

@@ -1,10 +1,13 @@
 #intro
 I saw a {load(adj)} {load(noun#char)} with {load(noun#item,plur)} {enum(coming out of|all over|sticking out of|on)} its {load(noun#body)}.
+I was {load(verb#action,ger)} in a {load(adj)} {load(noun#loc)}, and I {enum(felt)} very {load(adj#emo)}.
 
 #action
-The {reuse(noun#char)} began to {load(verb#actionobj)} me, but I {load(verb#actionobj,past)} it and ran away.
+The {reuse(noun#char,strict)} began to {load(verb#actionobj)} me, but I {load(verb#actionobj,past)} it and ran away.
 {enum(thinking this was strange,|I began to realize something was amiss, and)} I {load(verb#move,past)} to a {load(noun#loc)}.
-The {reuse(noun#loc)} that I was in suddenly began to {load(verb#action)}.
+The {reuse(noun#loc,strict)} suddenly began to {load(verb#action)}.
+I looked around and saw that I was now in a {load(noun#loc)}, and {load(adv#trans)} I felt {load(adj#emo)}.
+The {reuse(noun#char,strict)} {enum(gave me some|started to spit out lots of|showed me several)} {load(noun#item,plur)}.
 
 #end
 Then, I woke up.
