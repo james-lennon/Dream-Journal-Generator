@@ -8,13 +8,15 @@ yell at
 sing to
 stand on
 shoot
-throw some {load(noun#item)}
+throw some {load(noun#item,plur)}
 take a photo of
 
 #action
 shake
 melt
 crumble
+shrink in height
+grow much larger
 
 #state
 think

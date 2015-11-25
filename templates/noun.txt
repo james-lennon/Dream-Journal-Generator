@@ -24,8 +24,8 @@ mouse
 insect
 bug
 phone
-triangle
-square
+{enum(wooden|metal|glass)} triangle
+{enum(wooden|metal|glass)} square
 photo
 
 #body

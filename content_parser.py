@@ -137,7 +137,7 @@ class DreamTemplate:
             if len(args) > 1:
                 parts = word.split(" ")
                 first = parts[0]
-                rest = parts[1:][0] if len(parts) > 1 else ""
+                rest = ' ' + ' '.join(parts[1:]) if len(parts) > 1 else ""
 
                 if args[1] == "plur":
                     word = pattern.en.pluralize(word)
@@ -162,7 +162,7 @@ class DreamTemplate:
             raise ValueError("Invalid arguments given to reuse", args)
 
         strict = False
-        if len(args) >1 and args[1]=="strict":
+        if len(args) > 1 and args[1] == "strict":
             strict = True
 
         if args[0] not in self.content.components:
