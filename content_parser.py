@@ -36,6 +36,13 @@ class DreamTemplate:
             if i.endswith(".txt"):
                 self._load_template_file(i)
 
+    def replace_content(self, query, values):
+        parts = query.split("#")
+        comp = self._get_component(query)
+        if parts[1] not in comp.sections:
+            raise ValueError("Section doesn't exist", query)
+        comp.sections[parts[1]] = values
+
     def _load_template_file(self, filename):
         full_filename = os.path.join(TEMPLATE_PATH, filename)
 
@@ -53,6 +60,15 @@ class DreamTemplate:
                 else:
                     component.add_entry(current_section, line[0:len(line) - 1])
         self.components[filename.split(".")[0]] = component
+
+    def _get_component(self, query):
+        parts = query.split("#")
+        if len(parts) > 2:
+            raise ValueError('Bad query string', query)
+
+        if parts[0] not in self.components:
+            raise ValueError('Component not found', parts[0])
+        return self.components[parts[0]]
 
     def _pick_random_component(self, query):
         parts = query.split("#")
