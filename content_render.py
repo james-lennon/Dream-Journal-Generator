@@ -7,7 +7,7 @@ def render(template_file, content, image=None):
 
         html_string = html_string.replace("{content}", content)
 
-        pdfkit.from_string(html_string, "out.pdf")
+        pdfkit.from_string(html_string, "out.pdf", css="html/style.css")
 
 
 if __name__ == '__main__':
