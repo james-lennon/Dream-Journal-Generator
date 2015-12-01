@@ -31,3 +31,19 @@ walk
 drive
 go
 sprint
+
+#vpchar
+{enum(gave me some|started to spit out lots of|showed me several)} {load(noun#item,plur)}
+began to {load(verb#action)}
+{load(verb#move,past)} to a {load(noun#loc)}
+began to {load(verb#actionobj)} me
+
+#vpme
+{load(verb#move,past)} to a {load(noun#loc)}
+began to {load(verb#action)}
+felt {prob({enum(very|a little|slightly|strangely)})} {load(adj#emo)}
+
+#vpmeobj
+{load(verb#actionobj,past)} it and ran away
+tried to get it to {load(verb#actionobj,past)} me
+could tell it was getting {prob({enum(very|a little|slightly|strangely)})} {load(adj#emo)}
