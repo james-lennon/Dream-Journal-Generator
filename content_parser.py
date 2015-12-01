@@ -36,13 +36,19 @@ class DreamTemplate:
             if i.endswith(".txt"):
                 self._load_template_file(i)
 
+    def _generate_strong(self, query):
+        result = False
+        while not result:
+            result = self.parse_command(query)
+        return result
+
     def generate_dream(self):
         result = ""
 
-        result += self.parse_command("load(sent#intro)")
-        result += self.parse_command("load(sent#action)")
-        result += self.parse_command("load(sent#action)")
-        result += self.parse_command("load(sent#end)")
+        result += self._generate_strong("load(sent#intro)")
+        result += self._generate_strong("load(sent#action)")
+        result += self._generate_strong("load(sent#action)")
+        result += self._generate_strong("load(sent#end)")
 
         return result
 
