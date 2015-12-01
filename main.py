@@ -24,7 +24,8 @@ tmp.load()
 
 dream = tmp.generate_dream()
 
-content_render.render("html/entry1.html", dream)
+# content_render.render("html/entry1.html", dream)
 
+print dream
 noun = tmp.content.components["noun#char"][0]
 print noun, dream_images.get_photo(noun, surreal=False)

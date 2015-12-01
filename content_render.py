@@ -13,6 +13,9 @@ class DreamJournal:
             html_string = html_string.replace("{content}", dream)
             self.content += html_string + "<div style='page-break-before:always'></div>"
 
+    def render(self, out_file):
+        pdfkit.from_string(self.content, out_file, css="html/style.css")
+
 
 def render(template_file, content, image=None):
     with open(template_file, "r") as openfile:

@@ -46,5 +46,5 @@ wasn't {enum(afraid|scared|worried|concerned|happy about it)}
 
 #vpmeobj
 {load(verb#actionobj,past)} it and ran away
-tried to get it to {load(verb#actionobj,past)} me
+tried to get it to {load(verb#actionobj)} me
 could tell it was getting {prob({enum(very|a little|slightly|strangely)})} {load(adj#emo)}

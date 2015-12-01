@@ -8,6 +8,7 @@ cat
 statue
 tin man
 scarecrow
+director of the {reuse(noun#loc,strict)}
 
 #item
 log
