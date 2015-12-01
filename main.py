@@ -1,6 +1,7 @@
 # http://www.gilesthomas.com/2010/05/generating-political-news-using-nltk/
 
 import content_parser
+import content_render
 import dream_images
 
 # load dreams from file
@@ -20,10 +21,10 @@ import dream_images
 
 tmp = content_parser.DreamTemplate()
 tmp.load()
-print tmp.parse_command("load(sent#intro)")
-print tmp.parse_command("load(sent#action)")
-print tmp.parse_command("load(sent#action)")
-print tmp.parse_command("load(sent#end)")
 
-# noun = tmp.content.components["noun#char"][0]
-# print dream_images.get_photo(noun, surreal=True)
+dream = tmp.generate_dream()
+
+content_render.render("html/entry1.html", dream)
+
+noun = tmp.content.components["noun#char"][0]
+print noun, dream_images.get_photo(noun, surreal=False)

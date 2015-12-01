@@ -1,15 +1,16 @@
 #intro
 I saw a {load(adj)} {load(noun#char)} with {load(noun#item,plur)} {enum(coming out of|all over|sticking out of|on)} its {load(noun#body)}.
 I was {load(verb#action,ger)} in a {load(adj)} {load(noun#loc)}, and I {enum(felt)} very {load(adj#emo)}.
-A {load(noun#char)} {enum(appeared|came out of nowhere|showed up)}.
+A {load(noun#char)} {enum(appeared|came out of nowhere|showed up)} and {load(verb#vpchar)}.
 
 #action
 The {reuse(noun#char,strict)} began to {load(verb#actionobj)} me, but I {load(verb#vpmeobj)}.
-{enum(thinking this was strange,|I began to realize something was amiss, and)} I {load(verb#vpme)}.
+{enum(thinking this was strange,|I began to realize something weird was going on, and|for some reason, I didn't notic anything weird about this, and)} I {load(verb#vpme)}.
 The {reuse(noun#loc,strict)} suddenly {load(verb#vpchar)}.
 I looked around and saw that I was now in a {load(noun#loc)}, and I {load(verb#vpme)}.
 The {reuse(noun#char,strict)} {load(verb#vpchar)}.
 I didn't know what to do, so I {load(verb#vpme)} {enum(for some reason|thinking this would help)}.
+The scene changed to a {load(noun#loc)}, with a {load(noun#char)} {load(adv#vmod)} {load(verb#action,ger)}.
 
 #end
 Then, I woke up.

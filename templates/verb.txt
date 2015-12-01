@@ -42,6 +42,7 @@ began to {load(verb#actionobj)} me
 {load(verb#move,past)} to a {load(noun#loc)}
 began to {load(verb#action)}
 felt {prob({enum(very|a little|slightly|strangely)})} {load(adj#emo)}
+wasn't {enum(afraid|scared|worried|concerned|happy about it)}
 
 #vpmeobj
 {load(verb#actionobj,past)} it and ran away

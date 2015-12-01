@@ -36,6 +36,16 @@ class DreamTemplate:
             if i.endswith(".txt"):
                 self._load_template_file(i)
 
+    def generate_dream(self):
+        result = ""
+
+        result += self.parse_command("load(sent#intro)")
+        result += self.parse_command("load(sent#action)")
+        result += self.parse_command("load(sent#action)")
+        result += self.parse_command("load(sent#end)")
+
+        return result
+
     def replace_content(self, query, values):
         parts = query.split("#")
         comp = self._get_component(query)
