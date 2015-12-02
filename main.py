@@ -22,19 +22,23 @@ import dream_images
 tmp = content_parser.DreamTemplate()
 tmp.load()
 
-dream = tmp.generate_dream()
 
 # content_render.render("html/entry1.html", dream)
 
-print dream
-noun = False
-if "noun#char" in tmp.content.components:
-    noun = tmp.content.components["noun#char"][0]
-img = False
-if noun:
-    img = dream_images.get_photo(noun, surreal=False)
-print img
+# print dream
 
 journal = content_render.DreamJournal()
-journal.add_dream(dream, img)
+
+for i in range(0, 3):
+    tmp.reset()
+    dream = tmp.generate_dream()
+    noun = False
+    if "noun#char" in tmp.content.components:
+        noun = tmp.content.components["noun#char"][0]
+    img = False
+    if noun:
+        img = dream_images.get_photo(noun, surreal=False)
+    print img
+    journal.add_dream(dream, img)
+
 journal.render("out.pdf")

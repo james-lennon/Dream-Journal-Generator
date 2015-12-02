@@ -1,9 +1,16 @@
 import pdfkit
+import time
 
 
 class DreamJournal:
     def __init__(self):
         self.content = ""
+        self._load_cover("html/cover.html")
+
+    def _load_cover(self, cover_file):
+        with open(cover_file, "r") as openfile:
+            html_string = openfile.read().replace("{date}", time.strftime("%d.%m.%Y %H:%M:%S %p"))
+            self.content += html_string + "<div style='page-break-before:always'></div>"
 
     def add_dream(self, dream, image=''):
         template_file = "html/entry1.html"
@@ -15,7 +22,6 @@ class DreamJournal:
             if not image:
                 image = ''
             html_string = html_string.replace("{image}", image)
-            print html_string
             self.content += html_string + "<div style='page-break-before:always'></div>"
 
     def render(self, out_file):

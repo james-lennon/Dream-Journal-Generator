@@ -7,3 +7,17 @@
     max-width: 500px;
     max-height: 500px;
 }
+
+.title {
+    font-family: Adler;
+    font-size: 50pt;
+}
+
+.subtitle {
+    font-family: Adler;
+    font-size: 25pt;
+}
+
+body {
+    background-color: grey;
+}

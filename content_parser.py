@@ -219,3 +219,6 @@ class DreamTemplate:
         if random.random() < prob:
             return self.parse_entry(args[0])
         return ""
+
+    def reset(self):
+        self.content = DreamContent()

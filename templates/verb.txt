@@ -10,6 +10,7 @@ stand on
 shoot
 throw some {load(noun#item,plur)}
 take a photo of
+grab
 
 #action
 shake
