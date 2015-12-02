@@ -2,3 +2,8 @@
     font-family: Adler;
     font-size: 25pt;
 }
+
+.dream-img-med {
+    max-width: 500px;
+    max-height: 500px;
+}

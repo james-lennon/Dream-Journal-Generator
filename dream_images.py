@@ -19,4 +19,4 @@ def get_photo(keyword, surreal=False):
         return False
     photo_num = random.randrange(min(num_results, 10))
     photo = w[photo_num:].next()
-    return photo.getPhotoUrl()
+    return photo.getPhotoFile()

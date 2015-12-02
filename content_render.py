@@ -5,15 +5,16 @@ class DreamJournal:
     def __init__(self):
         self.content = ""
 
-    def add_dream(self, dream, image=False):
+    def add_dream(self, dream, image=''):
         template_file = "html/entry1.html"
 
         with open(template_file, "r") as openfile:
             html_string = openfile.read()
 
             html_string = html_string.replace("{content}", dream)
-            if image:
-                html_string = html_string.replace("{image}", image)
+            if not image:
+                image = ''
+            html_string = html_string.replace("{image}", image)
             print html_string
             self.content += html_string + "<div style='page-break-before:always'></div>"
 
@@ -22,7 +23,7 @@ class DreamJournal:
         pdfkit.from_string(self.content, out_file, css="html/style.css", configuration=cfg)
 
 
-def render(template_file, content, image=None):
+def render(template_file, content, image=''):
     with open(template_file, "r") as openfile:
         html_string = openfile.read()
 
