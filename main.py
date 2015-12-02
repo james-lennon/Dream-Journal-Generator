@@ -27,5 +27,14 @@ dream = tmp.generate_dream()
 # content_render.render("html/entry1.html", dream)
 
 print dream
-noun = tmp.content.components["noun#char"][0]
-print noun, dream_images.get_photo(noun, surreal=False)
+noun = False
+if "noun#char" in tmp.content.components:
+    noun = tmp.content.components["noun#char"][0]
+img = False
+if noun:
+    img = dream_images.get_photo(noun, surreal=False)
+print img
+
+journal = content_render.DreamJournal()
+journal.add_dream(dream, img)
+journal.render("out.pdf")
