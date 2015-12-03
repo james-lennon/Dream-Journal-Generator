@@ -9,6 +9,7 @@ statue
 tin man
 scarecrow
 director of the {reuse(noun#loc,strict)}
+dinosaur
 
 #item
 log

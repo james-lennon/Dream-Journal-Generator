@@ -25,7 +25,6 @@ walk
 sit
 chill
 
-
 #move
 run
 walk

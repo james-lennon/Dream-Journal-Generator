@@ -29,7 +29,7 @@ tmp.load()
 
 journal = content_render.DreamJournal()
 
-for i in range(0, 3):
+for i in range(0, 20):
     tmp.reset()
     dream = tmp.generate_dream()
     noun = False

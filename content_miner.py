@@ -1,5 +1,4 @@
 from pattern.en import parsetree, conjugate, singularize
-import json
 import content_parser
 
 content = """
@@ -38,7 +37,17 @@ def mine(text):
     return result
 
 
+def load(text, template):
+    dict = mine(text)
+    for key in dict:
+        print key
+        try:
+            template.replace_content(key, dict[key])
+        except ValueError as e:
+            print e
+
+
 if __name__ == '__main__':
-    print mine(content)
     tmp = content_parser.DreamTemplate()
     tmp.load()
+    load(content, tmp)
