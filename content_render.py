@@ -14,9 +14,10 @@ class DreamJournal:
             html_string = openfile.read().replace("{date}", time.strftime("%d.%m.%Y %H:%M:%S %p"))
             self.content += html_string + "<div style='page-break-before:always'></div>"
 
-    def generate_dreams(self, count):
-        tmp = content_parser.DreamTemplate()
-        tmp.load()
+    def generate_dreams(self, count, tmp=None):
+        if tmp is None:
+            tmp = content_parser.DreamTemplate()
+            tmp.load()
         for i in range(0, count):
             tmp.reset()
             dream = tmp.generate_dream()

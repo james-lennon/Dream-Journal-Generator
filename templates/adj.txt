@@ -19,3 +19,6 @@ nervous
 angry
 furious
 relaxed
+
+#ap
+{{enum(extremely|a little|very|somewhat)} {load(adj)}

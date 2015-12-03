@@ -1,5 +1,6 @@
 from pattern.en import parsetree, conjugate, singularize
 import content_parser
+import content_render
 
 content = """
 Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much. They were the last people you'd expect to be involved in anything strange or mysterious, because they just didn't hold with such nonsense.
@@ -51,3 +52,10 @@ if __name__ == '__main__':
     tmp = content_parser.DreamTemplate()
     tmp.load()
     load(content, tmp)
+
+    journal = content_render.DreamJournal()
+
+    journal.generate_dreams(5, tmp)
+
+    journal.render("out.pdf")
+
