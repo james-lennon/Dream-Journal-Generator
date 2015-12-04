@@ -1,11 +1,22 @@
 .dream {
     font-family: Adler;
-    font-size: 25pt;
+    font-size: 15pt;
 }
 
 .dream-img-med {
     max-width: 500px;
     max-height: 500px;
+    margin: 20px;
+}
+
+.dream-img-sm {
+    max-width: 300px;
+    max-height: 300px;
+    margin: 20px;
+}
+
+.dream-img-left {
+    float: left;
 }
 
 .title {

@@ -48,6 +48,9 @@ class DreamTemplate:
         result += self._generate_strong("load(sent#intro)")
         result += self._generate_strong("load(sent#action)")
         result += self._generate_strong("load(sent#action)")
+        # result += self._generate_strong("load(sent#intro)")
+        # result += self._generate_strong("load(sent#action)")
+        # result += self._generate_strong("load(sent#action)")
         result += self._generate_strong("load(sent#end)")
 
         return result

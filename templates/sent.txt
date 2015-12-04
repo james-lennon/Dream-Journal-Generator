@@ -15,5 +15,4 @@ The scene changed to a {load(noun#loc)}, with a {load(noun#char)} {load(adv#vmod
 I {enum(was enjoying myself|was very uncomfortable)} because it was {load(adj#ap)} {enum(inside|outside)} the {reuse(noun#loc)}.
 
 #end
-I'm glad that it {reuse(verb#)}
 Then, I woke up.
