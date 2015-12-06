@@ -2,7 +2,7 @@
 monster
 teacher
 man
-woman
+person who looked just like me
 dog
 cat
 statue
