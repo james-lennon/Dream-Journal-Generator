@@ -1,0 +1,11 @@
+#me
+Hello?
+What's going on?
+Who are you?
+This is {load(adj#ap)}.
+I want to {load(verb#action)}.
+
+#char
+Hey man, it happens.
+You must look inside.
+

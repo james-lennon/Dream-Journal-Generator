@@ -49,3 +49,6 @@ house
 airport
 dorm
 classroom
+church
+beach
+island

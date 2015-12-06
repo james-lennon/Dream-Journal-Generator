@@ -19,7 +19,7 @@ nervous
 angry
 furious
 relaxed
+like I had {enum(done|accomplished)} something {enum(terrible|great|satisfying|helpful|wrong)}
 
 #ap
-{{enum(extremely|a little|very|somewhat)} {load(adj)}
-like I had {enum(done|accomplished)} something {enum(terrible|great|satisfying|helpful|wrong)}
+{enum(extremely|a little|very|somewhat)} {load(adj)}

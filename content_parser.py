@@ -40,7 +40,9 @@ class DreamTemplate:
         result = False
         while not result:
             result = self.parse_command(query)
-        result = result[:1].capitalize() + result[1:] + ".  "
+        result = result[:1].capitalize() + result[1:]
+        if result[-1] != '"':
+            result += ".  "
         return result
 
     def generate_dream(self):

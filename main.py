@@ -26,6 +26,6 @@ import dream_images
 
 journal = content_render.DreamJournal()
 
-journal.generate_dreams(5)
+journal.generate_dreams(10)
 
 journal.render("out.pdf")

@@ -37,16 +37,18 @@ sprint
 began to {load(verb#action)}
 {load(verb#move,past)} to a {load(noun#loc)}
 began to {load(verb#actionobj)} me
-{enum(said|shouted|whispered|stated)} "hello"
+{enum(said|shouted|whispered|stated)} "{load(speech#char)}"
 
 #vpme
 {load(verb#move,past)} to a {load(noun#loc)}
 began to {load(verb#action)}
 felt {prob({enum(very|a little|slightly|strangely)})} {load(adj#emo)}
 {enum(wasn't|stopped being)} {enum(afraid|scared|worried|concerned|happy about it)}
-{enum(said|shouted|whispered|stated)} "hello"
+{enum(said|shouted|whispered|stated)} "{load(speech#me)}"
+heard a voice say "{load(speech#char)}"
 
 #vpmeobj
 {load(verb#actionobj,past)} it and ran away
 tried to get it to {load(verb#actionobj)} me
 could tell it was getting {prob({enum(very|a little|slightly|strangely)})} {load(adj#emo)}
+{enum(shouted|screamed|yelled)} at it "{load(speech#me)}"
