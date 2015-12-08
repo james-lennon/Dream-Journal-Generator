@@ -1,19 +1,23 @@
 #intro
 I saw a {load(adj)} {load(noun#char)} with {load(noun#item,plur)} {enum(coming out of|all over|sticking out of|on)} its {load(noun#body)}
 A {load(noun#char)} {enum(appeared|came out of nowhere|showed up)} and {load(verb#vpchar)}
-I was {load(verb#action,ger)} in a {load(adj)} {load(noun#loc)}, and I {enum(felt)} very {load(adj#emo)}
-My {enum(friends|family|dog)} and I were at a {load(noun#loc)}, but it's a very strange {reuse(noun#loc)} {enum(on top of a {load(noun#loc)}|with {load(noun#item,plur)} everywhere)}
 
 #thought
 
+#loc
+I was {load(verb#action,ger)} in a {load(adj)} {load(noun#loc)}, and I {load(verb#vpme)}
+My {enum(friends|family|dog)} and I were at a {load(noun#loc)}, but it's a very strange {reuse(noun#loc)} {enum(on top of a {load(noun#loc)}|with {load(noun#item,plur)} everywhere)}
+I'm {load(verb#action,ger)} in a {load(noun#loc)} when all of a sudden a {load(noun#char)} {load(verb#vpchar)}
+
+#chngloc
+The scene changed to a {load(noun#loc)}, with a {load(noun#char)} {load(adv#vmod)} {load(verb#action,ger)}
+I looked around and saw that I was now in a {load(noun#loc)}, and I {load(verb#vpme)}
 
 #action
 The {reuse(noun#char,strict)} began to {load(verb#actionobj)} me, but I {load(verb#vpmeobj)}
 The {reuse(noun#loc,strict)} suddenly {load(verb#vpchar)}
-I looked around and saw that I was now in a {load(noun#loc)}, and I {load(verb#vpme)}
 The {reuse(noun#char,strict)} {load(verb#vpchar)}
 I didn't know what to do, so I {load(verb#vpme)} {enum(for some reason|thinking this would help)}
-The scene changed to a {load(noun#loc)}, with a {load(noun#char)} {load(adv#vmod)} {load(verb#action,ger)}
 I {enum(was enjoying myself|was very uncomfortable)} because it was {load(adj#ap)} {enum(inside|outside)} the {reuse(noun#loc)}
 
 #end

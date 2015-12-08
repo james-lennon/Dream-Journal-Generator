@@ -5,6 +5,12 @@ import pattern.en
 
 TEMPLATE_PATH = os.path.join(".", "templates")
 
+DREAM_SPECS = [
+    ['intro', 'action', 'action', 'end'],
+    ['loc', 'action', 'action', 'intro', 'action', 'action', 'end'],
+    ['intro', 'action', 'action', 'loc', 'action', 'action', 'end']
+]
+
 
 class TemplateComponent:
     def __init__(self):
@@ -42,19 +48,24 @@ class DreamTemplate:
             result = self.parse_command(query)
         result = result[:1].capitalize() + result[1:]
         if result[-1] != '"':
-            result += ".  "
+            result += "."
+        result += "  "
         return result
 
     def generate_dream(self):
         result = ""
 
-        result += self._generate_strong("load(sent#intro)")
-        result += self._generate_strong("load(sent#action)")
-        result += self._generate_strong("load(sent#action)")
-        result += self._generate_strong("load(sent#intro)")
-        result += self._generate_strong("load(sent#action)")
-        result += self._generate_strong("load(sent#action)")
-        result += self._generate_strong("load(sent#end)")
+        spec = random.sample(DREAM_SPECS, 1)[0]
+        for entry in spec:
+            result += self._generate_strong("load(sent#%s)" % entry)
+
+        # result += self._generate_strong("load(sent#intro)")
+        # result += self._generate_strong("load(sent#action)")
+        # result += self._generate_strong("load(sent#action)")
+        # result += self._generate_strong("load(sent#intro)")
+        # result += self._generate_strong("load(sent#action)")
+        # result += self._generate_strong("load(sent#action)")
+        # result += self._generate_strong("load(sent#end)")
 
         return result
 

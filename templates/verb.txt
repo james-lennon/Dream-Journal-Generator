@@ -35,6 +35,7 @@ sprint
 #vpchar
 {enum(gave me some|started to spit out lots of|showed me several)} {load(noun#item,plur)}
 began to {load(verb#action)}
+started {load(verb#action,ger)}
 {load(verb#move,past)} to a {load(noun#loc)}
 began to {load(verb#actionobj)} me
 {enum(said|shouted|whispered|stated)} "{load(speech#char)}"

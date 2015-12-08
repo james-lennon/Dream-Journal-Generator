@@ -2,7 +2,7 @@
 red
 green
 blue
-dark
+obscure
 bright
 large
 small

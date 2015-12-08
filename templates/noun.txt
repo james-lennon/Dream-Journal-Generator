@@ -8,7 +8,7 @@ cat
 statue
 tin man
 scarecrow
-director of the {reuse(noun#loc,strict)}
+{enum(director|manager|leader)} of the {reuse(noun#loc,strict)}
 dinosaur
 
 #item
