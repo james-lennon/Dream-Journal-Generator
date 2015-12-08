@@ -1,11 +1,14 @@
-import pdfkit
 import time
+
+import pdfkit
+
 import content_parser
 import dream_images
 
 
 class DreamJournal:
     def __init__(self):
+        self.dream_text = ""
         self.content = ""
         self._load_cover("html/cover.html")
         self.image_urls = set()
@@ -20,6 +23,8 @@ class DreamJournal:
             tmp = content_parser.DreamTemplate()
             tmp.load()
         for i in range(0, count):
+            print "[Generating Dream %d]" % (i + 1)
+
             tmp.reset()
             dream = tmp.generate_dream()
             noun = False
@@ -33,6 +38,7 @@ class DreamJournal:
                 self.add_dream(dream, img)
 
     def add_dream(self, dream, image=''):
+        self.dream_text += dream + "\n\n"
         template_file = "html/entry1.html"
 
         with open(template_file, "r") as openfile:
@@ -45,8 +51,11 @@ class DreamJournal:
             self.content += html_string + "<div style='page-break-before:always'></div>"
 
     def render(self, out_file):
+        with open(out_file + ".txt", "w") as txtfile:
+            txtfile.write(self.dream_text)
+
         cfg = pdfkit.configuration(wkhtmltopdf='/usr/local/bin/wkhtmltopdf')
-        pdfkit.from_string(self.content, out_file, css="html/style.css", configuration=cfg)
+        pdfkit.from_string(self.content, out_file + ".pdf", css="html/style.css", configuration=cfg)
 
 
 def render(template_file, content, image=''):

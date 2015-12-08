@@ -28,4 +28,4 @@ journal = content_render.DreamJournal()
 
 journal.generate_dreams(10)
 
-journal.render("out.pdf")
+journal.render("out")
