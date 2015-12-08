@@ -8,6 +8,7 @@ class DreamJournal:
     def __init__(self):
         self.content = ""
         self._load_cover("html/cover.html")
+        self.image_urls = set()
 
     def _load_cover(self, cover_file):
         with open(cover_file, "r") as openfile:
@@ -27,8 +28,9 @@ class DreamJournal:
             img = False
             if noun:
                 img = dream_images.get_photo(noun, surreal=False)
-            print img
-            self.add_dream(dream, img)
+            if img not in self.image_urls:
+                self.image_urls.add(img)
+                self.add_dream(dream, img)
 
     def add_dream(self, dream, image=''):
         template_file = "html/entry1.html"
