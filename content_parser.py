@@ -8,7 +8,9 @@ TEMPLATE_PATH = os.path.join(".", "templates")
 DREAM_SPECS = [
     ['intro', 'action', 'action', 'end'],
     ['loc', 'action', 'action', 'intro', 'action', 'action', 'end'],
-    ['intro', 'action', 'action', 'loc', 'action', 'action', 'end']
+    ['loc', 'action', 'action', 'chngloc', 'action', 'action', 'end'],
+    ['intro', 'action', 'action', 'chngloc', 'action', 'action', 'end'],
+    ['intro', 'action', 'action', 'chngloc', 'action', 'intro', 'action', 'action', 'end']
 ]
 
 

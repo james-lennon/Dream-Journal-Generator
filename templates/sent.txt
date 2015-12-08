@@ -18,7 +18,7 @@ The {reuse(noun#char,strict)} began to {load(verb#actionobj)} me, but I {load(ve
 The {reuse(noun#loc,strict)} suddenly {load(verb#vpchar)}
 The {reuse(noun#char,strict)} {load(verb#vpchar)}
 I didn't know what to do, so I {load(verb#vpme)} {enum(for some reason|thinking this would help)}
-I {enum(was enjoying myself|was very uncomfortable)} because it was {load(adj#ap)} {enum(inside|outside)} the {reuse(noun#loc)}
+I {enum(was enjoying myself|was very uncomfortable)} because it was {load(adj#ap)} {enum(inside|outside)} the {reuse(noun#loc,strict)}
 
 #end
 Then, I woke up

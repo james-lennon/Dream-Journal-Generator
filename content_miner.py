@@ -51,11 +51,15 @@ def load(text, template):
 if __name__ == '__main__':
     tmp = content_parser.DreamTemplate()
     tmp.load()
+
+    with open("data/dream_data.txt", "r") as openfile:
+        content = openfile.read()
+
     load(content, tmp)
 
     journal = content_render.DreamJournal()
 
     journal.generate_dreams(5, tmp)
 
-    journal.render("out.pdf")
+    journal.render("out")
 
