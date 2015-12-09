@@ -3,13 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="22e777ba-69e1-4326-a349-1fc4e6c10e99" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out.pdf" afterPath="$PROJECT_DIR$/out.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/adj.txt" afterPath="$PROJECT_DIR$/templates/adj.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/content_parser.py" afterPath="$PROJECT_DIR$/content_parser.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/noun.txt" afterPath="$PROJECT_DIR$/templates/noun.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out.txt" afterPath="$PROJECT_DIR$/out.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/sent.txt" afterPath="$PROJECT_DIR$/templates/sent.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/speech.txt" afterPath="$PROJECT_DIR$/templates/speech.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/verb.txt" afterPath="$PROJECT_DIR$/templates/verb.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Dream-Journal-Generator.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,8 +52,8 @@
       <file leaf-file-name="out.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/out.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2504.426">
-              <caret line="9518" column="121" selection-start-line="9518" selection-start-column="117" selection-end-line="9518" selection-end-column="121" />
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="366" selection-start-line="0" selection-start-column="366" selection-end-line="0" selection-end-column="366" />
               <folding />
             </state>
           </provider>
@@ -66,7 +63,7 @@
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -75,8 +72,8 @@
       <file leaf-file-name="content_parser.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/content_parser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.5424063">
-              <caret line="188" column="0" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
+            <state vertical-scroll-proportion="-0.27218935">
+              <caret line="212" column="26" selection-start-line="212" selection-start-column="26" selection-end-line="212" selection-end-column="26" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -97,7 +94,7 @@
       <file leaf-file-name="noun.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/noun.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.2222223">
+            <state vertical-scroll-proportion="0.0">
               <caret line="4" column="8" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="8" />
               <folding />
             </state>
@@ -107,8 +104,8 @@
       <file leaf-file-name="sent.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/sent.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.444445">
-              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -127,7 +124,7 @@
       <file leaf-file-name="verb.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/verb.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.7037036">
+            <state vertical-scroll-proportion="0.0">
               <caret line="31" column="7" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
               <folding />
             </state>
@@ -156,19 +153,19 @@
         <option value="$PROJECT_DIR$/data/star_wars.txt" />
         <option value="$PROJECT_DIR$/out.pdf.txt" />
         <option value="$PROJECT_DIR$/content_miner.py" />
-        <option value="$PROJECT_DIR$/content_parser.py" />
         <option value="$PROJECT_DIR$/html/entry1.html" />
         <option value="$PROJECT_DIR$/html/entry2.html" />
         <option value="$PROJECT_DIR$/html/entry3.html" />
         <option value="$PROJECT_DIR$/html/style.css" />
         <option value="$PROJECT_DIR$/content_render.py" />
         <option value="$PROJECT_DIR$/out.txt" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/templates/adj.txt" />
         <option value="$PROJECT_DIR$/templates/noun.txt" />
         <option value="$PROJECT_DIR$/templates/verb.txt" />
         <option value="$PROJECT_DIR$/templates/speech.txt" />
         <option value="$PROJECT_DIR$/templates/sent.txt" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/content_parser.py" />
       </list>
     </option>
   </component>
@@ -265,8 +262,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -512,13 +509,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/content_parser.py</url>
-          <line>204</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -526,7 +516,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="11" />
+      <option name="time" value="14" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -800,7 +790,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -815,7 +804,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -841,44 +829,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/content_render.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="67" column="34" selection-start-line="67" selection-start-column="34" selection-end-line="67" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/random.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="292" column="0" selection-start-line="292" selection-start-column="0" selection-end-line="292" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/noun.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.2222223">
+        <state vertical-scroll-proportion="0.0">
           <caret line="4" column="8" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2504.426">
-          <caret line="9518" column="121" selection-start-line="9518" selection-start-column="117" selection-end-line="9518" selection-end-column="121" />
           <folding />
         </state>
       </provider>
@@ -893,7 +854,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/verb.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.7037036">
+        <state vertical-scroll-proportion="0.0">
           <caret line="31" column="7" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
           <folding />
         </state>
@@ -907,18 +868,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content_render.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="67" column="34" selection-start-line="67" selection-start-column="34" selection-end-line="67" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/sent.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.444445">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="366" selection-start-line="0" selection-start-column="366" selection-end-line="0" selection-end-column="366" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/content_parser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.5424063">
-          <caret line="188" column="0" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
+        <state vertical-scroll-proportion="-0.27218935">
+          <caret line="212" column="26" selection-start-line="212" selection-start-column="26" selection-end-line="212" selection-end-column="26" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

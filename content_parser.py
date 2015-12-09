@@ -181,6 +181,21 @@ class DreamTemplate:
         except Exception:
             print "Error with command:", cmd
 
+    def _apply_property(self, word, args):
+        result = word
+        if len(args) > 1:
+            parts = word.split(" ")
+            first = parts[0]
+            rest = ' ' + ' '.join(parts[1:]) if len(parts) > 1 else ""
+
+            if args[1] == "plur":
+                result = pattern.en.pluralize(pattern.en.singularize(word))
+            elif args[1] == "ger":
+                result = pattern.en.conjugate(pattern.en.conjugate(first), "part") + rest
+            elif args[1] == "past":
+                result = pattern.en.conjugate(pattern.en.conjugate(first), 'p') + rest
+        return result
+
     def _load_component(self, args):
         if len(args) == 0:
             raise ValueError("Invalid number of arguments passed to load", args)
@@ -188,17 +203,7 @@ class DreamTemplate:
         while True:
             word = self._pick_random_component(args[0])
 
-            if len(args) > 1:
-                parts = word.split(" ")
-                first = parts[0]
-                rest = ' ' + ' '.join(parts[1:]) if len(parts) > 1 else ""
-
-                if args[1] == "plur":
-                    word = pattern.en.pluralize(word)
-                elif args[1] == "ger":
-                    word = pattern.en.conjugate(first, "part") + rest
-                elif args[1] == "past":
-                    word = pattern.en.conjugate(first, 'p') + rest
+            word = self._apply_property(word, args)
 
             if args[0] not in self.content.components or word not in self.content.components[args[0]]:
                 break
@@ -212,7 +217,7 @@ class DreamTemplate:
         return self.parse_entry(random.sample(options, 1)[0])
 
     def _reuse(self, args):
-        if len(args) == 0:
+        if len(args) == 0 or len(args) > 2:
             raise ValueError("Invalid arguments given to reuse", args)
 
         strict = False
@@ -226,7 +231,8 @@ class DreamTemplate:
                 return self._load_component(args)
         else:
             list = self.content.components[args[0]]
-            return random.sample(list, 1)[0]
+            word = random.sample(list, 1)[0]
+            return self._apply_property(word, args)
 
     def _prob(self, args):
         if len(args) == 0:
