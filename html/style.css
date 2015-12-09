@@ -4,8 +4,8 @@
 }
 
 .dream-img-med {
-    max-width: 500px;
-    max-height: 500px;
+    max-width: 400px;
+    max-height: 400px;
     margin: 20px;
 }
 
@@ -16,6 +16,10 @@
 }
 
 .dream-img-left {
+    float: left;
+}
+
+.dream-img-right {
     float: left;
 }
 

@@ -52,3 +52,4 @@ classroom
 church
 beach
 island
+the basement of a {load(noun#loc)}

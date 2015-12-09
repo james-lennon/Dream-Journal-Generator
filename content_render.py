@@ -1,9 +1,12 @@
+import random
 import time
 
 import pdfkit
 
 import content_parser
 import dream_images
+
+NUM_HTML_TEMPLATES = 3
 
 
 class DreamJournal:
@@ -18,7 +21,7 @@ class DreamJournal:
             html_string = openfile.read().replace("{date}", time.strftime("%d.%m.%Y %H:%M:%S %p"))
             self.content += html_string + "<div style='page-break-before:always'></div>"
 
-    def generate_dreams(self, count, tmp=None):
+    def generate_dreams(self, count, tmp=None, add_images=True):
         if tmp is None:
             tmp = content_parser.DreamTemplate()
             tmp.load()
@@ -27,19 +30,23 @@ class DreamJournal:
 
             tmp.reset()
             dream = tmp.generate_dream()
-            noun = False
-            if "noun#char" in tmp.content.components:
-                noun = tmp.content.components["noun#char"][0]
-            img = False
-            if noun:
-                img = dream_images.get_photo(noun, surreal=False)
-            if img not in self.image_urls:
-                self.image_urls.add(img)
-                self.add_dream(dream, img)
+            img = ""
+            if add_images:
+                noun = False
+                if "noun#char" in tmp.content.components:
+                    noun = tmp.content.components["noun#char"][0]
+                img = False
+                if noun:
+                    img = dream_images.get_photo(noun, surreal=False)
+                if img in self.image_urls:
+                    img = ""
+                else:
+                    self.image_urls.add(img)
+            self.add_dream(dream, img)
 
     def add_dream(self, dream, image=''):
         self.dream_text += dream + "\n\n"
-        template_file = "html/entry1.html"
+        template_file = "html/entry%i.html" % random.randrange(1, NUM_HTML_TEMPLATES + 1)
 
         with open(template_file, "r") as openfile:
             html_string = openfile.read()
@@ -51,9 +58,11 @@ class DreamJournal:
             self.content += html_string + "<div style='page-break-before:always'></div>"
 
     def render(self, out_file):
+        print "[Saving Text]"
         with open(out_file + ".txt", "w") as txtfile:
             txtfile.write(self.dream_text)
 
+        print "[Generating PDF]"
         cfg = pdfkit.configuration(wkhtmltopdf='/usr/local/bin/wkhtmltopdf')
         pdfkit.from_string(self.content, out_file + ".pdf", css="html/style.css", configuration=cfg)
 
