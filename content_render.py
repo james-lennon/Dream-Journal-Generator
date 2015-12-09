@@ -63,22 +63,16 @@ class DreamJournal:
             txtfile.write(self.dream_text)
 
         print "[Generating PDF]"
+
+        options = {
+            'page-size': 'Letter',
+            'margin-top': '0in',
+            'margin-right': '0in',
+            'margin-bottom': '0in',
+            'margin-left': '0in',
+            'encoding': "UTF-8",
+            'no-outline': None
+        }
+
         cfg = pdfkit.configuration(wkhtmltopdf='/usr/local/bin/wkhtmltopdf')
         pdfkit.from_string(self.content, out_file + ".pdf", css="html/style.css", configuration=cfg)
-
-
-def render(template_file, content, image=''):
-    with open(template_file, "r") as openfile:
-        html_string = openfile.read()
-
-        html_string = html_string.replace("{content}", content)
-        html_string = html_string + "<div style='page-break-before:always'></div>" + html_string
-
-        pdf = pdfkit.from_string(html_string, False, css="html/style.css")
-
-    with open("out.pdf", "w") as outfile:
-        outfile.write(pdf)
-
-
-if __name__ == '__main__':
-    render("html/entry1.html", "yo this is a dream, man.")

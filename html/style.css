@@ -23,6 +23,10 @@
     float: left;
 }
 
+.centered {
+    text-align: center;
+}
+
 .title {
     font-family: Adler;
     font-size: 50pt;

@@ -3,6 +3,7 @@ I saw a {load(adj)} {load(noun#char)} with {load(noun#item,plur)} {enum(coming o
 A {load(noun#char)} {enum(appeared|came out of nowhere|showed up)} and {load(verb#vpchar)}
 
 #thought
+Perhaps this was because I had a {reuse(noun#item,strict)} on my {enum(desk|table)} in waking life
 
 #loc
 I was {load(verb#action,ger)} in a {load(adj)} {load(noun#loc)}, and I {load(verb#vpme)}
@@ -12,12 +13,13 @@ I'm {load(verb#action,ger)} in a {load(noun#loc)} when all of a sudden a {load(n
 #chngloc
 The scene changed to a {load(noun#loc)}, with a {load(noun#char)} {load(adv#vmod)} {load(verb#action,ger)}
 I looked around and saw that I was now in a {load(noun#loc)}, and I {load(verb#vpme)}
+{enum(I don't know why|I don't know why I thought it would be a good idea|I wanted to stay)}, but I {load(verb#move,past)} to a {load(noun#loc)}
 
 #action
 The {reuse(noun#char,strict)} began to {load(verb#actionobj)} me, but I {load(verb#vpmeobj)}
 The {reuse(noun#loc,strict)} suddenly {load(verb#vpchar)}
 The {reuse(noun#char,strict)} {load(verb#vpchar)}
-I didn't know what to do, so I {load(verb#vpme)} {enum(for some reason|thinking this would help)}
+{enum(I didn't know what to do, so |)}I {load(verb#vpme)} {enum(for some reason|thinking this would help)}
 I {enum(was enjoying myself|was very uncomfortable)} because it was {load(adj#ap)} {enum(inside|outside)} the {reuse(noun#loc,strict)}
 
 #end
