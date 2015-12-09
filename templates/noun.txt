@@ -29,6 +29,10 @@ phone
 {enum(wooden|metal|glass)} triangle
 {enum(wooden|metal|glass)} square
 photo
+ice
+snow
+fire
+lava
 
 #body
 mouth

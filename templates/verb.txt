@@ -8,7 +8,7 @@ yell at
 sing to
 stand on
 shoot
-throw some {load(noun#item,plur)}
+throw some {load(noun#item,plur)} at
 take a photo of
 grab
 
@@ -29,7 +29,7 @@ chill
 run
 walk
 drive
-go
+go away
 sprint
 
 #vpchar

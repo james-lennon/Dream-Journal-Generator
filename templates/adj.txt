@@ -9,6 +9,16 @@ small
 tiny
 huge
 enormous
+pale
+hideous
+childlike
+grotesque
+futuristic
+towering
+pleasant
+graceful
+massive
+
 
 #emo
 content

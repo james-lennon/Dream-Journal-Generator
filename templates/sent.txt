@@ -14,13 +14,16 @@ I'm {load(verb#action,ger)} in a {load(noun#loc)} when all of a sudden a {load(n
 The scene changed to a {load(noun#loc)}, with a {load(noun#char)} {load(adv#vmod)} {load(verb#action,ger)}
 I looked around and saw that I was now in a {load(noun#loc)}, and I {load(verb#vpme)}
 {enum(I don't know why|I don't know why I thought it would be a good idea|I wanted to stay)}, but I {load(verb#move,past)} to a {load(noun#loc)}
+{enum(the details are fuzzy|I don't remember how)}, but I somehow got to a {load(noun#loc)}
 
 #action
 The {reuse(noun#char,strict)} began to {load(verb#actionobj)} me, but I {load(verb#vpmeobj)}
-The {reuse(noun#loc,strict)} suddenly {load(verb#vpchar)}
+the {reuse(noun#loc,strict)} {enum(strangely|)} {load(verb#vpchar)}
 The {reuse(noun#char,strict)} {load(verb#vpchar)}
 {enum(I didn't know what to do, so |)}I {load(verb#vpme)} {enum(for some reason|thinking this would help)}
 I {enum(was enjoying myself|was very uncomfortable)} because it was {load(adj#ap)} {enum(inside|outside)} the {reuse(noun#loc,strict)}
+I was {load(verb#action,ger)} aimlessly
+several more {reuse(noun#char,plur)} showed up and started {reuse(verb#action,ger)} too
 
 #end
 Then, I woke up
