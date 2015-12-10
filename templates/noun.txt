@@ -57,3 +57,4 @@ church
 beach
 island
 basement of a {load(noun#loc)}
+party

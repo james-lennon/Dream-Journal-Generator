@@ -27,11 +27,30 @@ class TemplateComponent:
 class DreamContent:
     def __init__(self):
         self.components = {}
+        self.iteration = 0
 
-    def add_component(self, query, comp):
+    def _apply_insert(self, query, comp):
         if query not in self.components:
             self.components[query] = []
-        self.components[query].append(comp)
+        self.components[query].append((comp, self.iteration))
+
+    def add_component(self, query, comp):
+        self._apply_insert(query, comp)
+
+    def get_component(self, query):
+        arr = self.components[query]
+        if len(arr) == 0:
+            return False
+        return random.sample(arr, 1)[0][0]
+
+    def invalidate_last(self):
+        for query in self.components:
+            entry = self.components[query]
+            new_entry = [(comp, i) for (comp, i) in entry if i != self.iteration]
+            self.components[query] = new_entry
+
+    def commit(self):
+        self.iteration += 1
 
 
 class DreamTemplate:
@@ -48,6 +67,11 @@ class DreamTemplate:
         result = False
         while not result:
             result = self.parse_command(query)
+            if not result:
+                self.content.invalidate_last()
+            else:
+                self.content.commit()
+
         result = result[:1].capitalize() + result[1:]
         if result[-1] != '"':
             result += "."
@@ -178,10 +202,14 @@ class DreamTemplate:
                 return self._reuse(args)
             elif fxn == "prob":
                 return self._prob(args)
-        except Exception:
+        except Exception as ex:
             print "Error with command:", cmd
+            print ex
+            return False
 
     def _apply_property(self, word, args):
+        if not word:
+            return False
         result = word
         if len(args) > 1:
             parts = word.split(" ")
@@ -189,7 +217,7 @@ class DreamTemplate:
             rest = ' ' + ' '.join(parts[1:]) if len(parts) > 1 else ""
 
             if args[1] == "plur":
-                result = pattern.en.pluralize(pattern.en.singularize(word))
+                result = pattern.en.pluralize(pattern.en.singularize(first)) + rest
             elif args[1] == "ger":
                 result = pattern.en.conjugate(pattern.en.conjugate(first), "part") + rest
             elif args[1] == "past":
@@ -217,11 +245,11 @@ class DreamTemplate:
         return self.parse_entry(random.sample(options, 1)[0])
 
     def _reuse(self, args):
-        if len(args) == 0 or len(args) > 2:
+        if len(args) == 0 or len(args) > 3:
             raise ValueError("Invalid arguments given to reuse", args)
 
         strict = False
-        if len(args) > 1 and args[1] == "strict":
+        if len(args) > 1 and args[-1] == "strict":
             strict = True
 
         if args[0] not in self.content.components:
@@ -230,8 +258,9 @@ class DreamTemplate:
             else:
                 return self._load_component(args)
         else:
-            list = self.content.components[args[0]]
-            word = random.sample(list, 1)[0]
+            # list = self.content.components[args[0]]
+            # word = random.sample(list, 1)[0]
+            word = self.content.get_component(args[0])
             return self._apply_property(word, args)
 
     def _prob(self, args):

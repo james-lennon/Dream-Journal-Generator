@@ -11,6 +11,7 @@ shoot
 throw some {load(noun#item,plur)} at
 take a photo of
 grab
+{load(verb#move)} away
 
 #action
 shake
@@ -18,6 +19,9 @@ melt
 crumble
 shrink in height
 grow much larger
+think
+run away
+{load(verb#move)}
 
 #state
 think

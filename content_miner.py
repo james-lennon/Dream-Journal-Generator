@@ -52,7 +52,7 @@ if __name__ == '__main__':
     tmp = content_parser.DreamTemplate()
     tmp.load()
 
-    with open("data/dream_data.txt", "r") as openfile:
+    with open("data/star_wars.txt", "r") as openfile:
         content = openfile.read()
 
     load(content, tmp)

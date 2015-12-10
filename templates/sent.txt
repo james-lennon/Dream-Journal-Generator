@@ -23,7 +23,7 @@ The {reuse(noun#char,strict)} {load(verb#vpchar)}
 {enum(I didn't know what to do, so |)}I {load(verb#vpme)} {enum(for some reason|thinking this would help)}
 I {enum(was enjoying myself|was very uncomfortable)} because it was {load(adj#ap)} {enum(inside|outside)} the {reuse(noun#loc,strict)}
 I was {load(verb#action,ger)} aimlessly
-several more {reuse(noun#char,plur)} showed up and started {reuse(verb#action,ger)} too
+several more {reuse(noun#char,plur,strict)} showed up and started {reuse(verb#action,ger)} too
 
 #end
 Then, I woke up
