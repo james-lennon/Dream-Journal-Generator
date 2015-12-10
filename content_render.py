@@ -5,6 +5,7 @@ import pdfkit
 
 import content_parser
 import dream_images
+import content_date
 
 NUM_HTML_TEMPLATES = 3
 
@@ -21,10 +22,11 @@ class DreamJournal:
             html_string = openfile.read().replace("{date}", time.strftime("%d.%m.%Y %H:%M:%S %p"))
             self.content += html_string + "<div style='page-break-before:always'></div>"
 
-    def generate_dreams(self, count, tmp=None, add_images=True):
+    def generate_dreams(self, count, tmp=None, add_images=True, add_dates=True):
         if tmp is None:
             tmp = content_parser.DreamTemplate()
             tmp.load()
+        cur_date = time.strftime("%d.%m.%Y")
         for i in range(0, count):
             print "[Generating Dream %d]" % (i + 1)
 
@@ -34,7 +36,7 @@ class DreamJournal:
             if add_images:
                 noun = False
                 if "noun#char" in tmp.content.components:
-                    noun = tmp.content.components["noun#char"][0]
+                    noun = tmp.content.get_component("noun#char")
                 img = False
                 if noun:
                     img = dream_images.get_photo(noun, surreal=False)
@@ -42,6 +44,9 @@ class DreamJournal:
                     img = ""
                 else:
                     self.image_urls.add(img)
+            if add_dates:
+                cur_date = content_date.generate_date(cur_date)
+                dream  = cur_date + "<br>\n" + dream
             self.add_dream(dream, img)
 
     def add_dream(self, dream, image=''):
