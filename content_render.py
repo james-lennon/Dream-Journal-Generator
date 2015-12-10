@@ -80,8 +80,7 @@ class DreamJournal:
             total_string = self._load_cover("html/cover.html")
             for i, r in enumerate(self.dream_renders):
                 if i % 2 == 1:
-                    total_string += wrapping.replace("{entry}", r + self.dream_renders[
-                        i - 1])
+                    total_string += wrapping.replace("{entry}", self.dream_renders[i - 1] + r)
                     if i != len(self.dream_renders) - 1:
                         total_string += "<div style='page-break-before:always'></div>"
 
