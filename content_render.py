@@ -20,6 +20,8 @@ class DreamJournal:
     def _load_cover(self, cover_file):
         with open(cover_file, "r") as openfile:
             html_string = openfile.read().replace("{date}", time.strftime("%d.%m.%Y %H:%M:%S %p"))
+            image = dream_images.get_photo("dream")
+            html_string = html_string.replace("{image}", image)
             return html_string + "<div style='page-break-before:always'></div>"
 
     def generate_dreams(self, count, tmp=None, add_images=True, add_dates=True):
