@@ -10,6 +10,10 @@ tin man
 scarecrow
 {enum(director|manager|leader)} of the {reuse(noun#loc,strict)}
 dinosaur
+zombie
+boy
+girl
+woman
 
 #item
 log
@@ -58,3 +62,5 @@ beach
 island
 basement of a {load(noun#loc)}
 party
+hotel
+bridge

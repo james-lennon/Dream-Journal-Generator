@@ -1,8 +1,6 @@
 # http://www.gilesthomas.com/2010/05/generating-political-news-using-nltk/
 
-import content_parser
 import content_render
-import dream_images
 
 # load dreams from file
 # with open("data/dream_data.txt", "r") as dream_file:
@@ -28,4 +26,4 @@ journal = content_render.DreamJournal()
 
 journal.generate_dreams(10000, add_images=False)
 
-journal.render("out")
+journal.render("out", pdf=False)

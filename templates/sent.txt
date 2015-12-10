@@ -32,3 +32,4 @@ I jolted awake
 {load(sent#action)}, and I smiled
 The {reuse(noun#char,strict)} continued doing this indefinitely
 The last thing I remember is the {reuse(noun#char,strict)} saying "{load(speech#char)}"
+As I {load(verb#vpmeobj)} it, the dream ends.

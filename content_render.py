@@ -57,22 +57,23 @@ class DreamJournal:
             html_string = html_string.replace("{image}", image)
             self.content += html_string + "<div style='page-break-before:always'></div>"
 
-    def render(self, out_file):
+    def render(self, out_file, pdf=True):
         print "[Saving Text]"
         with open(out_file + ".txt", "w") as txtfile:
             txtfile.write(self.dream_text)
 
-        print "[Generating PDF]"
+        if pdf:
+            print "[Generating PDF]"
 
-        options = {
-            'page-size': 'Letter',
-            'margin-top': '0in',
-            'margin-right': '0in',
-            'margin-bottom': '0in',
-            'margin-left': '0in',
-            'encoding': "UTF-8",
-            'no-outline': None
-        }
+            options = {
+                'page-size': 'Letter',
+                'margin-top': '0in',
+                'margin-right': '0in',
+                'margin-bottom': '0in',
+                'margin-left': '0in',
+                'encoding': "UTF-8",
+                'no-outline': None
+            }
 
-        cfg = pdfkit.configuration(wkhtmltopdf='/usr/local/bin/wkhtmltopdf')
-        pdfkit.from_string(self.content, out_file + ".pdf", css="html/style.css", configuration=cfg)
+            cfg = pdfkit.configuration(wkhtmltopdf='/usr/local/bin/wkhtmltopdf')
+            pdfkit.from_string(self.content, out_file + ".pdf", css="html/style.css", configuration=cfg)
