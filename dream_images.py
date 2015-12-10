@@ -1,4 +1,5 @@
 import random
+
 import flickr_api
 from flickr_api import Photo, Walker
 
@@ -10,7 +11,7 @@ flickr_api.set_keys(API_KEY, API_SECRET)
 
 
 def get_photo(keyword, surreal=False):
-    query_string = "bookcentury:1700 "+keyword
+    query_string = "bookcentury:1700 " + keyword
     if surreal:
         query_string += " surreal"
     w = Walker(Photo.search, text=query_string, sort="relevance", per_page=200)
@@ -20,3 +21,7 @@ def get_photo(keyword, surreal=False):
     photo_num = random.randrange(min(num_results, 10))
     photo = w[photo_num:].next()
     return photo.getPhotoFile()
+
+
+if __name__ == '__main__':
+    print get_photo("dream")

@@ -14,14 +14,13 @@ class DreamJournal:
     def __init__(self):
         self.dream_text = ""
         self.dream_renders = []
-        self.content = ""
         self._load_cover("html/cover.html")
         self.image_urls = set()
 
     def _load_cover(self, cover_file):
         with open(cover_file, "r") as openfile:
             html_string = openfile.read().replace("{date}", time.strftime("%d.%m.%Y %H:%M:%S %p"))
-            self.content += html_string + "<div style='page-break-before:always'></div>"
+            return html_string + "<div style='page-break-before:always'></div>"
 
     def generate_dreams(self, count, tmp=None, add_images=True, add_dates=True):
         if tmp is None:
@@ -64,7 +63,6 @@ class DreamJournal:
             html_string = html_string.replace("{image}", image)
 
             self.dream_renders.append(html_string)
-            self.content += html_string + "<div style='page-break-before:always'></div>"
 
     def render(self, out_file, pdf=True):
         print "[Saving Text]"
@@ -77,11 +75,13 @@ class DreamJournal:
             wrapping = ""
             with open("html/wrapper.html") as openfile:
                 wrapping = openfile.read()
-            total_string = ""
+            total_string = self._load_cover("html/cover.html")
             for i, r in enumerate(self.dream_renders):
                 if i % 2 == 1:
                     total_string += wrapping.replace("{entry}", r + self.dream_renders[
-                        i - 1] + "<div style='page-break-before:always'></div>")
+                        i - 1])
+                    if i != len(self.dream_renders) - 1:
+                        total_string += "<div style='page-break-before:always'></div>"
 
             options = {
                 'page-size': 'Letter',
