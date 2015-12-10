@@ -13,6 +13,7 @@ NUM_HTML_TEMPLATES = 3
 class DreamJournal:
     def __init__(self):
         self.dream_text = ""
+        self.dream_renders = []
         self.content = ""
         self._load_cover("html/cover.html")
         self.image_urls = set()
@@ -46,11 +47,12 @@ class DreamJournal:
                     self.image_urls.add(img)
             if add_dates:
                 cur_date = content_date.generate_date(cur_date)
-                dream  = cur_date + "<br>\n" + dream
+                dream = cur_date + "<br>\n" + dream
             self.add_dream(dream, img)
 
     def add_dream(self, dream, image=''):
         self.dream_text += dream + "\n\n"
+
         template_file = "html/entry%i.html" % random.randrange(1, NUM_HTML_TEMPLATES + 1)
 
         with open(template_file, "r") as openfile:
@@ -60,6 +62,8 @@ class DreamJournal:
             if not image:
                 image = ''
             html_string = html_string.replace("{image}", image)
+
+            self.dream_renders.append(html_string)
             self.content += html_string + "<div style='page-break-before:always'></div>"
 
     def render(self, out_file, pdf=True):
@@ -69,6 +73,15 @@ class DreamJournal:
 
         if pdf:
             print "[Generating PDF]"
+
+            wrapping = ""
+            with open("html/wrapper.html") as openfile:
+                wrapping = openfile.read()
+            total_string = ""
+            for i, r in enumerate(self.dream_renders):
+                if i % 2 == 1:
+                    total_string += wrapping.replace("{entry}", r + self.dream_renders[
+                        i - 1] + "<div style='page-break-before:always'></div>")
 
             options = {
                 'page-size': 'Letter',
@@ -81,4 +94,4 @@ class DreamJournal:
             }
 
             cfg = pdfkit.configuration(wkhtmltopdf='/usr/local/bin/wkhtmltopdf')
-            pdfkit.from_string(self.content, out_file + ".pdf", css="html/style.css", configuration=cfg)
+            pdfkit.from_string(total_string, out_file + ".pdf", css="html/style.css", configuration=cfg)
