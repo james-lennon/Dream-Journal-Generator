@@ -183,31 +183,32 @@ class DreamTemplate:
         if paren1 == -1 or paren2 == -1:
             raise ValueError('Bad command string', cmd)
 
-        try:
-            fxn = cmd[0:paren1]
-            args = cmd[paren1 + 1:paren2].split(",")
-            if fxn == "load":
-                return self._load_component(args)
-            elif fxn == "enum":
-                return self._enum(args)
-            elif fxn == "reuse":
-                return self._reuse(args)
-            elif fxn == "prob":
-                return self._prob(args)
-        except Exception as ex:
-            print "Error with command:", cmd
-            print ex
-            return False
+        # try:
+        fxn = cmd[0:paren1]
+        args = cmd[paren1 + 1:paren2].split(",")
+        if fxn == "load":
+            return self._load_component(args)
+        elif fxn == "enum":
+            return self._enum(args)
+        elif fxn == "reuse":
+            return self._reuse(args)
+        elif fxn == "prob":
+            return self._prob(args)
+        # except Exception as ex:
+        #     print "Error with command:", cmd
+        #     print ex
+        #     return False
 
     def _apply_property(self, word, args):
         if not word:
-            return False
+            return False, False
         index_str = word[word.find("<"):word.rfind(">")]
         index = False
         if len(index_str) > 0:
             index = int(index_str[1:])
 
         result = word.split("<")[0]
+        after = False if index is False else "<%i>" % index
         if len(args) > 1:
             parts = result.split(" ")
             first = parts[0]
@@ -223,7 +224,7 @@ class DreamTemplate:
                 result = pattern.en.conjugate(pattern.en.conjugate(first), "part") + rest
             elif args[1] == "past":
                 result = pattern.en.conjugate(pattern.en.conjugate(first), 'p') + rest
-        return result
+        return result, after
 
     def _load_component(self, args):
         if len(args) == 0:
@@ -232,11 +233,14 @@ class DreamTemplate:
         while True:
             word = self._pick_random_component(args[0])
 
-            word = self._apply_property(word, args)
+            word, after = self._apply_property(word, args)
 
             if args[0] not in self.content.components or word not in self.content.components[args[0]]:
                 break
-        self.content.add_component(args[0], word)
+        if after is not False:
+            self.content.add_component(args[0], word+after)
+        else:
+            self.content.add_component(args[0], word)
         return word
 
     def _enum(self, args):
@@ -260,7 +264,8 @@ class DreamTemplate:
                 return self._load_component(args)
         else:
             word = self.content.get_component(args[0])
-            return self._apply_property(word, args)
+            result, after = self._apply_property(word, args)
+            return result
 
     def _prob(self, args):
         if len(args) == 0:
