@@ -183,21 +183,21 @@ class DreamTemplate:
         if paren1 == -1 or paren2 == -1:
             raise ValueError('Bad command string', cmd)
 
-        # try:
-        fxn = cmd[0:paren1]
-        args = cmd[paren1 + 1:paren2].split(",")
-        if fxn == "load":
-            return self._load_component(args)
-        elif fxn == "enum":
-            return self._enum(args)
-        elif fxn == "reuse":
-            return self._reuse(args)
-        elif fxn == "prob":
-            return self._prob(args)
-        # except Exception as ex:
-        #     print "Error with command:", cmd
-        #     print ex
-        #     return False
+        try:
+            fxn = cmd[0:paren1]
+            args = cmd[paren1 + 1:paren2].split(",")
+            if fxn == "load":
+                return self._load_component(args)
+            elif fxn == "enum":
+                return self._enum(args)
+            elif fxn == "reuse":
+                return self._reuse(args)
+            elif fxn == "prob":
+                return self._prob(args)
+        except Exception as ex:
+            print "Error with command:", cmd
+            print ex
+            return False
 
     def _apply_property(self, word, args):
         if not word:
