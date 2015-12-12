@@ -210,14 +210,18 @@ class DreamTemplate:
     def _apply_property(self, word, args):
         if not word:
             return False
-        result = word
+        index_str = word[word.find("{"):word.rfind("}")]
+        index = False
+        if len(index_str) > 0:
+            index = int(index_str)
+        result = word.split("{")[0]
         if len(args) > 1:
             parts = word.split(" ")
             first = parts[0]
             rest = ' ' + ' '.join(parts[1:]) if len(parts) > 1 else ""
 
             if args[1] == "plur":
-                result = pattern.en.pluralize(pattern.en.singularize(first)) + rest
+                result = pattern.en.pluralize(pattern.en.singularize(word))
             elif args[1] == "ger":
                 result = pattern.en.conjugate(pattern.en.conjugate(first), "part") + rest
             elif args[1] == "past":

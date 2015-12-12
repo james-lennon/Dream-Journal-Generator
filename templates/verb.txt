@@ -54,5 +54,6 @@ heard a voice say "{load(speech#char)}"
 #vpmeobj
 {load(verb#actionobj,past)} it and ran away
 tried to get it to {load(verb#actionobj)} me
+tried to stop it from {load(verb#actionobj,ger)} me
 could tell it was getting {prob({enum(very|a little|slightly|strangely)})} {load(adj#emo)}
 {enum(shouted|screamed|yelled)} at it "{load(speech#me)}"

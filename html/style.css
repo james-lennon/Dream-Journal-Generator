@@ -28,6 +28,7 @@
 }
 
 .title {
+    margin-top: 100px;
     font-family: Adler;
     font-size: 50pt;
 }
@@ -35,6 +36,7 @@
 .subtitle {
     font-family: Adler;
     font-size: 25pt;
+    margin-top: 100px;
 }
 
 html {

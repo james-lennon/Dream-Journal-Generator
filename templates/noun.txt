@@ -64,3 +64,4 @@ basement of a {load(noun#loc)}
 party
 hotel
 bridge
+ocean

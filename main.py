@@ -17,13 +17,8 @@ import content_render
 
 # dream_generator.test(dreams)
 
-
-# content_render.render("html/entry1.html", dream)
-
-# print dream
-
 journal = content_render.DreamJournal()
 
-journal.generate_dreams(10, add_images=True)
+journal.generate_dreams(16, add_images=True)
 
 journal.render("out", pdf=True)

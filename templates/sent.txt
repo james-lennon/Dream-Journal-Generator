@@ -24,6 +24,7 @@ The {reuse(noun#char,strict)} {load(verb#vpchar)}
 I {enum(was enjoying myself|was very uncomfortable)} because it was {load(adj#ap)} {enum(inside|outside)} the {reuse(noun#loc,strict)}
 I was {load(verb#action,ger)} aimlessly
 several more {reuse(noun#char,plur,strict)} showed up and started {reuse(verb#action,ger)} too
+my {load(noun#body)} started falling off, and I {load(verb#vpme)}
 
 #end
 Then, I woke up
