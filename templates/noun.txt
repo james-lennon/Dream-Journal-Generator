@@ -2,13 +2,13 @@
 monster
 teacher
 man
-person who looked just like me
+person who looked just like me<0>
 dog
 cat
 statue
 tin man
 scarecrow
-{enum(director|manager|leader)} of the {reuse(noun#loc,strict)}
+{enum(director|manager|leader)} of the {reuse(noun#loc,strict)}<0>
 dinosaur
 zombie
 boy

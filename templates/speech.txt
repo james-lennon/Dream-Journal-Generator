@@ -12,6 +12,6 @@ Hey man, it happens
 You must look inside
 The {load(noun#item,plur)} are in the {load(noun#item)}
 Why are you so {reuse(adj,strict)}?
-That sucks
+That sucks.
 You should have {load(verb#vpchar)}!
 This is CS 50.

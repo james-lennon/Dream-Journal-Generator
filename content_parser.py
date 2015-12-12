@@ -85,14 +85,6 @@ class DreamTemplate:
         for entry in spec:
             result += self._generate_strong("load(sent#%s)" % entry)
 
-        # result += self._generate_strong("load(sent#intro)")
-        # result += self._generate_strong("load(sent#action)")
-        # result += self._generate_strong("load(sent#action)")
-        # result += self._generate_strong("load(sent#intro)")
-        # result += self._generate_strong("load(sent#action)")
-        # result += self._generate_strong("load(sent#action)")
-        # result += self._generate_strong("load(sent#end)")
-
         return result
 
     def replace_content(self, query, values):
@@ -210,18 +202,23 @@ class DreamTemplate:
     def _apply_property(self, word, args):
         if not word:
             return False
-        index_str = word[word.find("{"):word.rfind("}")]
+        index_str = word[word.find("<"):word.rfind(">")]
         index = False
         if len(index_str) > 0:
-            index = int(index_str)
-        result = word.split("{")[0]
+            index = int(index_str[1:])
+
+        result = word.split("<")[0]
         if len(args) > 1:
-            parts = word.split(" ")
+            parts = result.split(" ")
             first = parts[0]
             rest = ' ' + ' '.join(parts[1:]) if len(parts) > 1 else ""
 
             if args[1] == "plur":
-                result = pattern.en.pluralize(pattern.en.singularize(word))
+                if index is not False:
+                    result = ' '.join(parts[:index]) + pattern.en.pluralize(
+                        pattern.en.singularize(parts[index])) + ' ' + ' '.join(parts[index + 1:])
+                else:
+                    result = pattern.en.pluralize(pattern.en.singularize(word))
             elif args[1] == "ger":
                 result = pattern.en.conjugate(pattern.en.conjugate(first), "part") + rest
             elif args[1] == "past":
@@ -262,8 +259,6 @@ class DreamTemplate:
             else:
                 return self._load_component(args)
         else:
-            # list = self.content.components[args[0]]
-            # word = random.sample(list, 1)[0]
             word = self.content.get_component(args[0])
             return self._apply_property(word, args)
 
