@@ -18,12 +18,13 @@ I looked around and saw that I was now in a {load(noun#loc)}, and I {load(verb#v
 
 #action
 The {reuse(noun#char,strict)} began to {load(verb#actionobj)} me, but I {load(verb#vpmeobj)}
+The {reuse(noun#char,strict)} {load(adv#vmod)} {load(verb#vpchar)} me
 the {reuse(noun#loc,strict)} {enum(strangely|)} {load(verb#vpchar)}
 The {reuse(noun#char,strict)} {load(verb#vpchar)}
 {enum(I didn't know what to do, so |)}I {load(verb#vpme)} {enum(for some reason|thinking this would help)}
 I {enum(was enjoying myself|was very uncomfortable)} because it was {load(adj#ap)} {enum(inside|outside)} the {reuse(noun#loc,strict)}
 I was {load(verb#action,ger)} aimlessly
-several more {reuse(noun#char,plur,strict)} showed up and started {reuse(verb#action,ger)} too
+several more {reuse(noun#char,plur,strict)} showed up and started {reuse(verb#action,ger,strict)} too
 my {load(noun#body)} started falling off, and I {load(verb#vpme)}
 
 #end

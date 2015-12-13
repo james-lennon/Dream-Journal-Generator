@@ -2,15 +2,15 @@
 Hello?
 What's going on?
 Who are you?
-This is {load(adj#ap)}
-I want to {load(verb#action)}
-That sucks
+This is {load(adj#ap)}.
+I want to {load(verb#action)}.
+That sucks.
 This is CS 50.
 
 #char
-Hey man, it happens
-You must look inside
-The {load(noun#item,plur)} are in the {load(noun#item)}
+Hey man, it happens.
+You must look inside.
+The {load(noun#item,plur)} are in the {load(noun#item)}.
 Why are you so {reuse(adj,strict)}?
 That sucks.
 You should have {load(verb#vpchar)}!

@@ -11,7 +11,7 @@ shoot
 throw some {load(noun#item,plur)} at
 take a photo of
 grab
-{load(verb#move)} away
+{load(verb#move)} away from
 
 #action
 shake
