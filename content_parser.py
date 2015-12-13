@@ -41,7 +41,8 @@ class DreamContent:
         arr = self.components[query]
         if len(arr) == 0:
             return False
-        return random.sample(arr, 1)[0][0]
+        # return random.sample(arr, 1)[0][0]
+        return arr[-1][0]
 
     def invalidate_last(self):
         for query in self.components:
