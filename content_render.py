@@ -24,13 +24,13 @@ class DreamJournal:
             html_string = html_string.replace("{image}", image)
             return html_string + "<div style='page-break-before:always'></div>"
 
-    def generate_dreams(self, count, tmp=None, add_images=True, add_dates=True):
+    def generate_dreams(self, count, tmp=None, add_images=True, add_dates=True, verbose=True):
         if tmp is None:
             tmp = content_parser.DreamTemplate()
             tmp.load()
         cur_date = time.strftime("%d.%m.%Y")
         for i in range(0, count):
-            print "[Generating Dream %d]" % (i + 1)
+            if verbose: print "[Generating Dream %d]" % (i + 1)
 
             tmp.reset()
             dream = tmp.generate_dream()
@@ -66,13 +66,13 @@ class DreamJournal:
 
             self.dream_renders.append(html_string)
 
-    def render(self, out_file, pdf=True):
-        print "[Saving Text]"
+    def render(self, out_file, pdf=True, verbose=True):
+        if verbose: print "[Saving Text]"
         with open(out_file + ".txt", "w") as txtfile:
             txtfile.write(self.dream_text)
 
         if pdf:
-            print "[Generating PDF]"
+            if verbose: print "[Generating PDF]"
 
             wrapping = ""
             with open("html/wrapper.html") as openfile:
