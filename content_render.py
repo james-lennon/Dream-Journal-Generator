@@ -94,5 +94,9 @@ class DreamJournal:
                 'no-outline': None
             }
 
+            if not verbose:
+                options['quiet'] = ''
+
             cfg = pdfkit.configuration(wkhtmltopdf='/usr/local/bin/wkhtmltopdf')
-            pdfkit.from_string(total_string, out_file + ".pdf", css="html/style.css", configuration=cfg)
+            pdfkit.from_string(total_string, out_file + ".pdf", css="html/style.css", configuration=cfg,
+                               options=options)
