@@ -1,3 +1,4 @@
+import json
 import random
 import time
 
@@ -13,6 +14,7 @@ NUM_HTML_TEMPLATES = 3
 class DreamJournal:
     def __init__(self):
         self.dream_text = ""
+        self.dreams = []
         self.dream_renders = []
         self._load_cover("html/cover.html")
         self.image_urls = set()
@@ -53,6 +55,7 @@ class DreamJournal:
 
     def add_dream(self, dream, image=''):
         self.dream_text += dream + "\n\n"
+        self.dreams.append((dream, image))
 
         template_file = "html/entry%i.html" % random.randrange(1, NUM_HTML_TEMPLATES + 1)
 
@@ -100,3 +103,7 @@ class DreamJournal:
             cfg = pdfkit.configuration(wkhtmltopdf='/usr/local/bin/wkhtmltopdf')
             pdfkit.from_string(total_string, out_file + ".pdf", css="html/style.css", configuration=cfg,
                                options=options)
+
+    def generateJSON(self):
+        result = [{'dream': dream, 'image': image} for (dream, image) in self.dreams]
+        return json.dumps(result)
