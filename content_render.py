@@ -1,4 +1,5 @@
 import json
+import os
 import random
 import time
 
@@ -13,6 +14,7 @@ NUM_HTML_TEMPLATES = 3
 
 class DreamJournal:
     def __init__(self):
+        self.dir = os.path.dirname(os.path.realpath(__file__))
         self.dream_text = ""
         self.dreams = []
         self.dream_renders = []
@@ -20,7 +22,7 @@ class DreamJournal:
         self.image_urls = set()
 
     def _load_cover(self, cover_file):
-        with open(cover_file, "r") as openfile:
+        with open(os.path.join(self.dir, cover_file), "r") as openfile:
             html_string = openfile.read().replace("{date}", time.strftime("%d.%m.%Y %H:%M:%S %p"))
             image = dream_images.get_photo("dream")
             html_string = html_string.replace("{image}", image)
@@ -57,7 +59,7 @@ class DreamJournal:
         self.dream_text += dream + "\n\n"
         self.dreams.append((dream, image))
 
-        template_file = "html/entry%i.html" % random.randrange(1, NUM_HTML_TEMPLATES + 1)
+        template_file = os.path.join(self.dir, "html/entry%i.html" % random.randrange(1, NUM_HTML_TEMPLATES + 1))
 
         with open(template_file, "r") as openfile:
             html_string = openfile.read()
@@ -78,9 +80,9 @@ class DreamJournal:
             if verbose: print "[Generating PDF]"
 
             wrapping = ""
-            with open("html/wrapper.html") as openfile:
+            with open(os.path.join(self.dir, "html/wrapper.html")) as openfile:
                 wrapping = openfile.read()
-            total_string = self._load_cover("html/cover.html")
+            total_string = self._load_cover(os.path.join(self.dir, "html/cover.html"))
             for i, r in enumerate(self.dream_renders):
                 if i % 2 == 1:
                     total_string += wrapping.replace("{entry}", self.dream_renders[i - 1] + r)
@@ -101,7 +103,8 @@ class DreamJournal:
                 options['quiet'] = ''
 
             cfg = pdfkit.configuration(wkhtmltopdf='/usr/local/bin/wkhtmltopdf')
-            pdfkit.from_string(total_string, out_file + ".pdf", css="html/style.css", configuration=cfg,
+            pdfkit.from_string(total_string, out_file + ".pdf", css=os.path.join(self.dir, "html/style.css"),
+                               configuration=cfg,
                                options=options)
 
     def generateJSON(self):

@@ -3,7 +3,7 @@ import random
 
 import pattern.en
 
-TEMPLATE_PATH = os.path.join(".", "templates")
+TEMPLATE_PATH = os.path.join(os.path.dirname(os.path.realpath(__file__)), "templates")
 
 DREAM_SPECS = [
     ['intro', 'action', 'action', 'end'],
