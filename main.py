@@ -20,5 +20,5 @@ parser.add_option("-q", "--quiet", action="store_false", dest="verbose", default
 journal = content_render.DreamJournal()
 
 journal.generate_dreams(options.number, add_images=options.images, verbose=options.verbose)
-journal.render(options.filename, pdf=True, verbose=options.verbose)
+journal.render(options.filename, pdf=options.pdf, text=options.text_file, verbose=options.verbose)
 print journal.generateJSON()

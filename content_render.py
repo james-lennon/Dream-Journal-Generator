@@ -71,10 +71,11 @@ class DreamJournal:
 
             self.dream_renders.append(html_string)
 
-    def render(self, out_file, pdf=True, verbose=True):
-        if verbose: print "[Saving Text]"
-        with open(out_file + ".txt", "w") as txtfile:
-            txtfile.write(self.dream_text)
+    def render(self, out_file, pdf=True, text=True, verbose=True):
+        if text:
+            if verbose: print "[Saving Text]"
+            with open(out_file + ".txt", "w") as txtfile:
+                txtfile.write(self.dream_text)
 
         if pdf:
             if verbose: print "[Generating PDF]"
