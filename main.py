@@ -10,7 +10,7 @@ parser.add_option("-i", "--images", dest="images", action="store_true", default=
                   help="number of dreams to generate")
 parser.add_option("-p", "--pdf", dest="pdf", action="store_true", default=False,
                   help="generate pdf file")
-parser.add_option("-t", "--theme", dest="theme", action="store_true", default=False,
+parser.add_option("-t", "--theme", dest="theme", default=False,
                   help="dream theme")
 parser.add_option("-q", "--quiet", action="store_false", dest="verbose", default=True,
                   help="don't print status messages to stdout")

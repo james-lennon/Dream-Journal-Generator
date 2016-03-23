@@ -31,6 +31,8 @@ def mine(text):
                     result["noun#item"].add(singularize(p.object.string))
                 key = "verb#actionobj" if has_obj else "verb#action"
                 result[key].add(conjugate(p.string))
+            elif p.type == "NP":
+                result["noun#item"].add(singularize(p.string))
         #
         # for chunk in sentence.chunks:
         #     print chunk.type, [(w.string, w.type) for w in chunk.words]

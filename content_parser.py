@@ -2,6 +2,7 @@ import os
 import random
 
 import pattern.en
+import content_miner
 
 TEMPLATE_PATH = os.path.join(os.path.dirname(os.path.realpath(__file__)), "templates")
 
@@ -287,4 +288,11 @@ class DreamTemplate:
         self.content = DreamContent()
 
     def add_theme(self, theme_str):
-        pass
+        mined_content = content_miner.mine(theme_str)
+        for query in mined_content:
+            new_values = list(mined_content[query])
+            if len(new_values) == 0:
+                continue
+            parts = query.split("#")
+            comp = self._get_component(query)
+            comp.theme_sections[parts[1]] = list(mined_content[query])
