@@ -10,8 +10,8 @@ parser.add_option("-i", "--images", dest="images", action="store_true", default=
                   help="number of dreams to generate")
 parser.add_option("-p", "--pdf", dest="pdf", action="store_true", default=False,
                   help="generate pdf file")
-parser.add_option("-t", "--text_file", dest="text_file", action="store_true", default=False,
-                  help="generate txt file")
+parser.add_option("-t", "--theme", dest="theme", action="store_true", default=False,
+                  help="dream theme")
 parser.add_option("-q", "--quiet", action="store_false", dest="verbose", default=True,
                   help="don't print status messages to stdout")
 
@@ -19,6 +19,6 @@ parser.add_option("-q", "--quiet", action="store_false", dest="verbose", default
 
 journal = content_render.DreamJournal()
 
-journal.generate_dreams(options.number, add_images=options.images, verbose=options.verbose)
-journal.render(options.filename, pdf=options.pdf, text=options.text_file, verbose=options.verbose)
+journal.generate_dreams(options.number, add_images=options.images, verbose=options.verbose, theme=options.theme)
+journal.render(options.filename, pdf=options.pdf, text=False, verbose=options.verbose)
 print journal.generateJSON()

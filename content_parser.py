@@ -17,6 +17,7 @@ DREAM_SPECS = [
 class TemplateComponent:
     def __init__(self):
         self.sections = {}
+        self.theme_sections = {}
 
     def add_entry(self, section, entry):
         if section not in self.sections:
@@ -134,7 +135,10 @@ class DreamTemplate:
         section_name = "" if len(parts) == 1 else parts[1]
         if section_name not in comp.sections:
             raise ValueError('Section not found', section_name, query)
-        values = comp.sections[section_name]
+        if section_name in comp.theme_sections:
+            values = comp.theme_sections[section_name]
+        else:
+            values = comp.sections[section_name]
         if len(values) < 1:
             return False
         return self.parse_entry(random.sample(values, 1)[0])
@@ -281,3 +285,6 @@ class DreamTemplate:
 
     def reset(self):
         self.content = DreamContent()
+
+    def add_theme(self, theme_str):
+        pass

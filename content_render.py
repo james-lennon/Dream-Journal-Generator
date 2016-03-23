@@ -28,7 +28,7 @@ class DreamJournal:
             html_string = html_string.replace("{image}", image)
             return html_string + "<div style='page-break-before:always'></div>"
 
-    def generate_dreams(self, count, tmp=None, add_images=True, add_dates=True, verbose=True):
+    def generate_dreams(self, count, tmp=None, add_images=True, add_dates=True, verbose=True, theme=False):
         if tmp is None:
             tmp = content_parser.DreamTemplate()
             tmp.load()
@@ -37,6 +37,8 @@ class DreamJournal:
             if verbose: print "[Generating Dream %d]" % (i + 1)
 
             tmp.reset()
+            if theme != False:
+                tmp.add_theme(theme)
             dream = tmp.generate_dream()
             img = ""
             if add_images:
