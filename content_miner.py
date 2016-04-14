@@ -21,7 +21,7 @@ def mine(text):
         result["prep"] = set([p.string for p in sentence.pnp])
         for p in sentence.phrases:
             if p.type == "VP":
-                print p, p.subject, p.object
+                # print p, p.subject, p.object
 
                 has_obj = False
                 if p.subject is not None:
@@ -33,7 +33,7 @@ def mine(text):
                 result[key].add(conjugate(p.string))
             elif p.type == "NP":
                 result["noun#item"].add(singularize(p.string))
-        #
+
         # for chunk in sentence.chunks:
         #     print chunk.type, [(w.string, w.type) for w in chunk.words]
         print
